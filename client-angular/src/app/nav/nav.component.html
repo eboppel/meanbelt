@@ -1,0 +1,22 @@
+<nav>
+    <ul>
+      <li *ngIf="!loggedIn"><a routerLink="/">Home</a></li>
+
+      <div *ngIf="loggedIn">
+          <div id="menu">
+
+
+            <!-- <li><a routerLink="/authors">Authors</a></li>
+            <li><a routerLink="/books">Books</a></li> -->
+
+
+          </div>
+
+          <div id="user">
+            <button (click)="logout()">Logout</button>
+          </div>
+      </div>
+
+
+    </ul>
+  </nav>
