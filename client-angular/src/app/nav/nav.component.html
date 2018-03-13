@@ -2,19 +2,9 @@
     <ul>
       <li *ngIf="!loggedIn"><a routerLink="/">Home</a></li>
 
-      <div *ngIf="loggedIn">
-          <div id="menu">
-
-
-            <!-- <li><a routerLink="/authors">Authors</a></li>
-            <li><a routerLink="/books">Books</a></li> -->
-
-
-          </div>
-
-          <div id="user">
-            <button (click)="logout()">Logout</button>
-          </div>
+      <div *ngIf="loggedIn" class="menu">
+          <button routerLink="/dashboard">Dashboard</button>
+          <button (click)="logout()">Logout</button>
       </div>
 
 

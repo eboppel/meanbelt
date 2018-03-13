@@ -11,16 +11,6 @@ const UserSchema = new Schema({
 		trim: true,
 		unique: true
 	},
-	email: {
-		type: String,
-		required: true,
-		trim: true,
-		validate: {
-			validator: function(value) {
-				return validator.isEmail(value);
-			}
-		}
-	},
 	password: {
 		type: String,
 		required: true

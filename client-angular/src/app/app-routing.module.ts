@@ -3,22 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
+import { SurveyNewComponent } from './surveys/survey-new/survey-new.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
 
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
 
-  // { path: 'authors', children: [
-  //   { path: '', component: AuthorListComponent },
-  //   { path: 'new', component: AuthorNewComponent },
-  //   { path: ':author_id', component: AuthorDetailsComponent },
-  // ]},
+  { path: 'dashboard', component: SurveyListComponent },
+  { path: 'create', component: SurveyNewComponent },
+  { path: 'survey/:survey_id', component: SurveyDetailsComponent }
 
-  // { path: 'books', children: [
-  //   { path: '', component: BookListComponent },
-  //   { path: 'new', component: BookNewComponent },
-  //   { path: ':book_id', component: BookDetailsComponent },
-  // ]},
 
 ];
 

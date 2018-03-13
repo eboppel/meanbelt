@@ -1,0 +1,34 @@
+
+<h3> {{ survey?.question }}</h3>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Current Count of Votes</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>{{ survey?.option_1 }}</td>
+        <td> {{ survey?.vote_1 }} </td>
+        <td><button (click)="vote(survey._id, 'vote_1')">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{ survey?.option_2 }}</td>
+        <td> {{ survey?.vote_2 }} </td>
+        <td><button (click)="vote(survey._id, 'vote_2')">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{ survey?.option_3 }}</td>
+        <td> {{ survey?.vote_3 }} </td>
+        <td><button (click)="vote(survey._id, 'vote_3')">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{ survey?.option_4 }}</td>
+        <td> {{ survey?.vote_4 }} </td>
+        <td><button (click)="vote(survey._id, 'vote_4')">Vote</button></td>
+      </tr>
+  </tbody>
+</table>

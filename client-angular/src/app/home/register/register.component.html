@@ -1,38 +1,44 @@
 <div *ngIf="registrationErrors.length">
-    <ul class="alert alert-danger">
-      <li *ngFor="let error of registrationErrors">{{ error }}</li>
-    </ul>
-  </div>
+  <ul class="alert alert-danger">
+    <li *ngFor="let error of registrationErrors">{{ error }}</li>
+  </ul>
+</div>
 
 
-  <section class="row">
+<section>
 
-    <fieldset>
-      <legend>Register</legend>
+  <fieldset>
+    <legend>Register</legend>
 
-      <form (ngSubmit)="onSubmit(register.value)" #register='ngForm' class='form-group'>
-        <div class="form-control">
-          <label for="username">Username</label>
-          <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel" required>
+    <form (ngSubmit)="onSubmit(register.value)" #register='ngForm' class='form-group'>
+      <div class="form-control">
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel" required>
+        <div *ngIf="(username.touched || username.dirty) && username.errors" class="errors">
+          <div *ngIf="username.errors.required">Username is required</div>
         </div>
+      </div>
 
-        <div class="form-control">
-          <label for="email">Email</label>
-          <input type="email" name="email" [(ngModel)]="user.email" #email='ngModel' required>
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password" #password='ngModel' required minlength="4">
+        <div *ngIf="(password.touched || password.dirty) && password.errors" class="errors">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must have at least {{ password.errors.minlength.requiredLength }}</div>
         </div>
+      </div>
 
-        <div class="form-control">
-          <label for="password">Password</label>
-          <input type="password" name="password" [(ngModel)]="user.password" #password='ngModel' required>
+      <div class="form-control">
+        <label for="password2">Confirm Password</label>
+        <input type="password" name="password2" [(ngModel)]="user.password2" #password2='ngModel' required minlength="4" pattern="{{user.password}}">
+        <div *ngIf="(password2.touched || password2.dirty) && password2.errors" class="errors">
+          <div *ngIf="password2.errors.required">Password is required</div>
+          <div *ngIf="password2.errors.pattern">Passwords must match</div>
         </div>
+      </div>
 
-        <!-- <div class="form-control">
-          <label for="password2">Password</label>
-          <input type="password" name="password2" #password2='ngModel'>
-        </div> -->
+      <button [disabled]="!register.valid">Register</button>
+    </form>
+  </fieldset>
 
-        <button *ngIf="register.valid">Register</button>
-      </form>
-    </fieldset>
-
-  </section>
+</section>

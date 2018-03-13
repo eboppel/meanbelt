@@ -3,7 +3,7 @@ const User = require("mongoose").model("User");
 module.exports = {
 
 	login(request, response) { 
-		User.findOne({ email: request.body.email })
+		User.findOne({ username: request.body.username })
 			.then(user => {
 				if(!user) { throw new Error(); }
 

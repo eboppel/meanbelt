@@ -9,34 +9,41 @@ import { CookieModule } from 'ngx-cookie';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
+import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
-import { NavComponent } from './nav/nav.component';
+import { SurveysComponent } from './surveys/surveys.component';
+import { SurveyNewComponent } from './surveys/survey-new/survey-new.component';
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+
 
 // SERVICES
 import { AuthService } from './services/auth.service';
+import { SurveyService } from './services/survey.service';
 
-
+// PIPES
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent, LoginComponent, RegisterComponent,
+    SurveysComponent, SurveyNewComponent, SurveyNewComponent, SurveyListComponent, SurveyDetailsComponent,
+    SearchPipe
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule, HttpModule,
     AppRoutingModule,
     CookieModule.forRoot()
   ],
 
-  providers: [AuthService],
+  providers: [AuthService, SurveyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

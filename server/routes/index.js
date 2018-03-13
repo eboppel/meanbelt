@@ -1,6 +1,8 @@
 const router = require("express").Router();
 
-const authRouter = require('./auth.routes');
+const authRoutes = require('./auth.routes');
+const surveyRoutes = require('./survey.routes');
 
 module.exports = router
-	.use("/auth", authRouter)
+	.use("/auth", authRoutes)
+	.use('/survey', surveyRoutes)

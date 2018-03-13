@@ -23,10 +23,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(data: User) {
     this.auth.register(data).subscribe(user => {
-      console.log('registered user');
+      this.router.navigateByUrl('/dashboard');
     }, error => {
       console.log('error registering user', error);
-    })
+    });
   }
 
 }

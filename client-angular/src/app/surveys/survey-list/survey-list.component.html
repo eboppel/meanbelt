@@ -1,0 +1,32 @@
+
+<section>
+  <li><a routerLink='/create'>Create a New Poll</a></li>
+
+  <h2>Current Polls</h2>
+
+  <div class="search">
+    <input type="text" name="filter" placeholder="search..." [(ngModel)]="filter">
+    <span *ngIf="filter" (click)="filter = null">x</span>
+  </div>
+
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Survey Question</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let survey of surveys | search:filter">
+        <td>{{ survey._user.username }}</td>
+        <td><a [routerLink]="['/survey', survey._id]">{{ survey.question }}</a></td>
+        <td>{{ survey.createdAt | date }}</td>
+        <td><button *ngIf="survey._user._id === userId" (click)="onDelete(survey._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</section>

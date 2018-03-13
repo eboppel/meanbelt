@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(user: User) {
-    this.auth.login(user).subscribe( loggedUser => console.log('logged in user'),
+    this.auth.login(user).subscribe( loggedUser => this.router.navigateByUrl('/dashboard'),
     error => {
       this.handleErrors(error.json());
     });
